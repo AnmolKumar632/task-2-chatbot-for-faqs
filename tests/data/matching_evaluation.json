@@ -1,0 +1,48 @@
+[
+    {"query": "How can I reset my password?", "expected_faq_id": 1, "type": "exact"},
+    {"query": "How do I submit an assignment?", "expected_faq_id": 25, "type": "exact"},
+    {"query": "What is your refund policy?", "expected_faq_id": 19, "type": "exact"},
+    {"query": "How can I cancel my subscription?", "expected_faq_id": 18, "type": "exact"},
+
+    {"query": "I forgot my password. How can I change it?", "expected_faq_id": 1, "type": "paraphrase"},
+    {"query": "I can't remember my login password", "expected_faq_id": 1, "type": "paraphrase"},
+    {"query": "I want to delete my account", "expected_faq_id": 4, "type": "paraphrase"},
+    {"query": "Where can I see my grades from exams?", "expected_faq_id": 28, "type": "paraphrase"},
+    {"query": "I can't log in to my account", "expected_faq_id": 30, "type": "paraphrase"},
+    {"query": "Can I retake an assignment after it is due?", "expected_faq_id": 26, "type": "paraphrase"},
+    {"query": "Where do I find the assignments I need to complete?", "expected_faq_id": 24, "type": "paraphrase"},
+    {"query": "Is there a free trial I can use first?", "expected_faq_id": 9, "type": "paraphrase"},
+    {"query": "Do I get my money back after buying a course?", "expected_faq_id": 19, "type": "paraphrase"},
+    {"query": "How long until my refund arrives?", "expected_faq_id": 20, "type": "paraphrase"},
+    {"query": "Can I pay month by month?", "expected_faq_id": 14, "type": "paraphrase"},
+    {"query": "What payment options do you support?", "expected_faq_id": 13, "type": "paraphrase"},
+    {"query": "How do I check that a certificate is genuine?", "expected_faq_id": 23, "type": "paraphrase"},
+    {"query": "Can I watch course videos offline?", "expected_faq_id": 8, "type": "paraphrase"},
+    {"query": "What do I get with the paid subscription?", "expected_faq_id": 17, "type": "paraphrase"},
+    {"query": "Do I need any background knowledge to enroll?", "expected_faq_id": 12, "type": "paraphrase"},
+    {"query": "How can I take my exams online?", "expected_faq_id": 27, "type": "paraphrase"},
+    {"query": "Can I change the email on my account?", "expected_faq_id": 2, "type": "paraphrase"},
+    {"query": "How do I update my profile?", "expected_faq_id": 5, "type": "paraphrase"},
+
+    {"query": "reset password", "expected_faq_id": 1, "type": "vocabulary"},
+    {"query": "forgot password", "expected_faq_id": 1, "type": "vocabulary"},
+    {"query": "course refund", "expected_faq_id": 19, "type": "vocabulary"},
+    {"query": "discount code", "expected_faq_id": 15, "type": "vocabulary"},
+    {"query": "payment issue", "expected_faq_id": 16, "type": "vocabulary"},
+    {"query": "enroll in a course", "expected_faq_id": 10, "type": "vocabulary"},
+
+    {"query": "certificate", "expected_faq_id": null, "type": "short"},
+    {"query": "refund", "expected_faq_id": null, "type": "short"},
+    {"query": "password", "expected_faq_id": null, "type": "short"},
+
+    {"query": "Can I get a discount on a course?", "expected_faq_id": 15, "type": "ambiguous"},
+    {"query": "Can I pay for a course with a code?", "expected_faq_id": 15, "type": "ambiguous"},
+
+    {"query": "What is the capital of France?", "expected_faq_id": null, "type": "unrelated"},
+    {"query": "How far is the moon from Earth?", "expected_faq_id": null, "type": "unrelated"},
+    {"query": "Tell me a joke", "expected_faq_id": null, "type": "unrelated"},
+    {"query": "What is today's weather?", "expected_faq_id": null, "type": "unrelated"},
+    {"query": "Who invented the telephone?", "expected_faq_id": null, "type": "unrelated"},
+
+    {"query": "xyzabc qwerty klmno", "expected_faq_id": null, "type": "oov"}
+]

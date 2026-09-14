@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "question": "How can I reset my password?",
+        "answer": "Click 'Forgot password' on the login page, enter your registered email address, and follow the reset link we send you to create a new password.",
+        "category": "Account"
+    },
+    {
+        "id": 2,
+        "question": "How can I change my email address?",
+        "answer": "Open your account settings, go to the email section, enter your new address, and confirm the change with the verification link we send you.",
+        "category": "Account"
+    },
+    {
+        "id": 3,
+        "question": "I forgot my username. How can I recover it?",
+        "answer": "Your username is shown in your profile and in your account confirmation emails. If you still cannot find it, contact support using your registered email address.",
+        "category": "Account"
+    },
+    {
+        "id": 4,
+        "question": "How can I delete my account?",
+        "answer": "You can delete your account from the account settings page under 'Danger zone'. This permanently removes your profile, enrollments, and learning progress.",
+        "category": "Account"
+    },
+    {
+        "id": 5,
+        "question": "How can I update my profile information?",
+        "answer": "Go to your profile page, click 'Edit profile', and update your name, bio, photo, or any other personal details, then save your changes.",
+        "category": "Profile"
+    },
+    {
+        "id": 6,
+        "question": "How can I find a course on a specific topic?",
+        "answer": "Use the search bar on the homepage or browse the course catalog and filter by topic, level, or popularity to find a course that fits your goals.",
+        "category": "Courses"
+    },
+    {
+        "id": 7,
+        "question": "Do I get lifetime access to the courses I buy?",
+        "answer": "Yes, once you buy a course you keep access to its content forever, including all future updates we publish.",
+        "category": "Courses"
+    },
+    {
+        "id": 8,
+        "question": "Can I download course videos to watch offline?",
+        "answer": "Offline viewing is available in the mobile app for most courses. Download the lessons to your device and watch them without an internet connection.",
+        "category": "Courses"
+    },
+    {
+        "id": 9,
+        "question": "Do you offer a free trial of the platform?",
+        "answer": "New users get a 7-day free trial with full access to every course. You can cancel anytime before the trial ends without being charged.",
+        "category": "Courses"
+    },
+    {
+        "id": 10,
+        "question": "How do I enroll in a course?",
+        "answer": "Open the course page and click 'Enroll now', complete the checkout, and the course will appear in your learning dashboard.",
+        "category": "Enrollment"
+    },
+    {
+        "id": 11,
+        "question": "Can I cancel my enrollment in a course?",
+        "answer": "You can cancel an enrollment from the course page before the start date. After the course starts, cancellation follows the refund policy.",
+        "category": "Enrollment"
+    },
+    {
+        "id": 12,
+        "question": "Do I need any prerequisites before enrolling in a course?",
+        "answer": "Each course page lists its prerequisites and recommended skill level. Most courses have no prerequisites and welcome beginners.",
+        "category": "Enrollment"
+    },
+    {
+        "id": 13,
+        "question": "What payment methods do you accept?",
+        "answer": "We accept credit and debit cards, PayPal, and several local payment methods depending on your country.",
+        "category": "Payments"
+    },
+    {
+        "id": 14,
+        "question": "Can I pay for a course in installments?",
+        "answer": "Yes, eligible courses can be paid in monthly installments. The option appears on the checkout page when available.",
+        "category": "Payments"
+    },
+    {
+        "id": 15,
+        "question": "How do I apply a discount code?",
+        "answer": "Enter your discount code in the promo code field on the checkout page and click 'Apply'. The discount is shown before you pay.",
+        "category": "Payments"
+    },
+    {
+        "id": 16,
+        "question": "My payment failed. What should I do?",
+        "answer": "Check that your card details and billing address are correct, then retry. If the payment still fails, contact your bank or try a different payment method.",
+        "category": "Payments"
+    },
+    {
+        "id": 17,
+        "question": "What is included in the premium subscription?",
+        "answer": "The premium subscription includes unlimited course access, downloadable certificates, offline viewing, and priority support for one monthly fee.",
+        "category": "Subscriptions"
+    },
+    {
+        "id": 18,
+        "question": "How can I cancel my subscription?",
+        "answer": "You can cancel your subscription anytime from the billing page. Your access continues until the end of the current billing period.",
+        "category": "Subscriptions"
+    },
+    {
+        "id": 19,
+        "question": "What is your refund policy?",
+        "answer": "You can request a full refund within 14 days of purchase if you have completed less than 20 percent of the course.",
+        "category": "Refunds"
+    },
+    {
+        "id": 20,
+        "question": "How long does it take to process a refund?",
+        "answer": "Approved refunds are processed within 5 to 10 business days, depending on your bank or payment provider.",
+        "category": "Refunds"
+    },
+    {
+        "id": 21,
+        "question": "Am I eligible for a certificate after completing a course?",
+        "answer": "You receive a certificate after completing every course lesson and passing the final assessment with the required score.",
+        "category": "Certificates"
+    },
+    {
+        "id": 22,
+        "question": "How can I download my certificate?",
+        "answer": "Certificates appear in your profile under 'My certificates'. From there you can download the PDF or copy a public verification link.",
+        "category": "Certificates"
+    },
+    {
+        "id": 23,
+        "question": "How can I verify that a certificate is authentic?",
+        "answer": "Anyone can verify a certificate using the public verification link stored with each PDF, or the verification page on our site.",
+        "category": "Certificates"
+    },
+    {
+        "id": 24,
+        "question": "Where can I find my assignments?",
+        "answer": "Assignments appear in the course outline on the lesson page. Open the course and select the assignment tab to see all tasks.",
+        "category": "Assignments"
+    },
+    {
+        "id": 25,
+        "question": "How do I submit an assignment?",
+        "answer": "Open the assignment, upload or write your answer, and click 'Submit'. You will receive confirmation once the submission is recorded.",
+        "category": "Assignments"
+    },
+    {
+        "id": 26,
+        "question": "Can I resubmit an assignment after the deadline?",
+        "answer": "Submissions after the deadline are marked as late. Depending on the course, you may be allowed to resubmit once after the deadline with the instructor's approval.",
+        "category": "Assignments"
+    },
+    {
+        "id": 27,
+        "question": "How can I access my course exams?",
+        "answer": "Exams become available once you complete all lessons in the course section. Open the course and click the 'Exam' tab to start.",
+        "category": "Examinations"
+    },
+    {
+        "id": 28,
+        "question": "How do I check my exam results?",
+        "answer": "Your exam results and score appear immediately after submission in the exam report page, and they are also saved to your certificates and progress.",
+        "category": "Examinations"
+    },
+    {
+        "id": 29,
+        "question": "Course videos are not playing. What should I do?",
+        "answer": "Try refreshing the page, updating your browser, or switching to a stable connection. If the problem persists, clear your browser cache or contact support.",
+        "category": "Technical Support"
+    },
+    {
+        "id": 30,
+        "question": "I cannot log in to my account. What should I do?",
+        "answer": "Check your email and password, and make sure caps lock is off. If you still cannot log in, use the 'Forgot password' link or contact support for help.",
+        "category": "Technical Support"
+    }
+]

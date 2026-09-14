@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FAQ Assistant: intelligent FAQ support for our online learning platform. Ask about courses, payments, certificates, assignments, and more." />
+    <title>FAQ Assistant - Intelligent FAQ Support</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <p id="sr-loading" class="visually-hidden" aria-live="polite"></p>
+    <main class="chat-app">
+        <header class="chat-header">
+            <div class="header-avatar" aria-hidden="true">F</div>
+            <div class="header-text">
+                <h1 class="header-title">FAQ Assistant</h1>
+                <p class="header-subtitle">Intelligent FAQ support for our online learning platform</p>
+            </div>
+            <div class="status-indicator" id="status-indicator" title="Chatbot application status">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span id="status-text">Connecting</span>
+            </div>
+            <button id="new-chat-button" class="new-chat-button" type="button">New Chat</button>
+        </header>
+
+        <section id="chat-messages" class="chat-messages" aria-label="Chat messages" aria-live="polite">
+        </section>
+
+        <form id="chat-form" class="chat-input-area" autocomplete="off">
+            <label for="user-input" class="visually-hidden">Type your question</label>
+            <input
+                id="user-input"
+                type="text"
+                name="message"
+                placeholder="Ask about courses, payments, certificates, or your account…"
+                autocomplete="off"
+                maxlength="500"
+                required
+            />
+            <button id="send-button" class="send-button" type="submit">Send</button>
+        </form>
+    </main>
+
+    <dialog id="new-chat-dialog" class="confirm-dialog" aria-labelledby="new-chat-dialog-title">
+        <h2 id="new-chat-dialog-title" class="dialog-title">Start a new chat?</h2>
+        <p class="dialog-text">Your current conversation will be cleared from this browser.</p>
+        <div class="dialog-actions">
+            <button id="dialog-cancel" class="secondary-button" type="button">Cancel</button>
+            <button id="dialog-confirm" class="send-button" type="button">New Chat</button>
+        </div>
+    </dialog>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

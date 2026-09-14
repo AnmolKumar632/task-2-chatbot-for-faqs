@@ -1,0 +1,501 @@
+/* ============================================================
+   1. Reset / base
+   ============================================================ */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
+    background: #eef1f6;
+    color: #1f2933;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ============================================================
+   2. Page layout
+   ============================================================ */
+body,
+.chat-app {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-app {
+    width: 100%;
+    max-width: 760px;
+    height: 100dvh;
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0 0 40px rgba(31, 41, 51, 0.08);
+}
+
+/* ============================================================
+   3. Chat container
+   ============================================================ */
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    scroll-behavior: smooth;
+}
+
+/* ============================================================
+   4. Header
+   ============================================================ */
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 1.5rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e4e8ef;
+}
+
+.header-avatar {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.header-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.header-subtitle {
+    margin: 0.1rem 0 0;
+    font-size: 0.8rem;
+    color: #5b6572;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    color: #5b6572;
+    white-space: nowrap;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #94a3b8;
+    flex-shrink: 0;
+}
+
+.status-indicator.is-online .status-dot {
+    background: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+}
+
+.status-indicator.is-offline .status-dot {
+    background: #dc2626;
+}
+
+/* ============================================================
+   5. Messages
+   ============================================================ */
+.message {
+    display: flex;
+}
+
+.message-content {
+    max-width: 78%;
+    padding: 0.7rem 1rem;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.message-time {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.68rem;
+    opacity: 0.75;
+}
+
+/* ============================================================
+   6. User message
+   ============================================================ */
+.user-message {
+    justify-content: flex-end;
+}
+
+.user-message .message-content {
+    background: #2563eb;
+    color: #ffffff;
+    border-bottom-right-radius: 6px;
+}
+
+/* ============================================================
+   7. Bot message
+   ============================================================ */
+.bot-message {
+    justify-content: flex-start;
+}
+
+.bot-message .message-content {
+    background: #f1f5f9;
+    color: #1f2933;
+    border-bottom-left-radius: 6px;
+}
+
+/* ============================================================
+   8. Input area
+   ============================================================ */
+.chat-input-area {
+    display: flex;
+    gap: 0.6rem;
+    padding: 1rem 1.5rem;
+    background: #ffffff;
+    border-top: 1px solid #e4e8ef;
+}
+
+.chat-input-area input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cdd5df;
+    border-radius: 24px;
+    font-size: 0.95rem;
+    background: #f8fafc;
+    color: inherit;
+}
+
+.chat-input-area input:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: -1px;
+    border-color: #2563eb;
+    background: #ffffff;
+}
+
+.chat-input-area input::placeholder {
+    color: #94a3b8;
+}
+
+/* ============================================================
+   9. Buttons
+   ============================================================ */
+.send-button,
+.secondary-button {
+    flex-shrink: 0;
+    padding: 0.75rem 1.4rem;
+    border-radius: 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.send-button {
+    border: none;
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.send-button:hover,
+.send-button:focus-visible {
+    background: #1d4ed8;
+}
+
+.send-button:focus-visible,
+.secondary-button:focus-visible {
+    outline: 2px solid #1d4ed8;
+    outline-offset: 2px;
+}
+
+.send-button:disabled,
+.send-button.is-loading {
+    background: #93b4f5;
+    cursor: not-allowed;
+}
+
+.new-chat-button {
+    flex-shrink: 0;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid #cdd5df;
+    border-radius: 18px;
+    background: #ffffff;
+    color: #334155;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.new-chat-button:hover,
+.new-chat-button:focus-visible {
+    border-color: #2563eb;
+    background: #eff4ff;
+}
+
+.new-chat-button:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+.secondary-button {
+    border: 1px solid #cdd5df;
+    background: #ffffff;
+    color: #334155;
+}
+
+.secondary-button:hover,
+.secondary-button:focus-visible {
+    background: #f1f5f9;
+}
+
+.retry-button {
+    margin-top: 0.5rem;
+    padding: 0.4rem 1.1rem;
+    border: 1px solid #dc2626;
+    border-radius: 18px;
+    background: #ffffff;
+    color: #b91c1c;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.retry-button:hover,
+.retry-button:focus-visible {
+    background: #fef2f2;
+}
+
+.retry-button:focus-visible {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   10. Loading / typing indicator
+   ============================================================ */
+.typing-dots {
+    display: inline-flex;
+    gap: 0.35rem;
+    padding: 0.5rem 0;
+}
+
+.typing-dots .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #94a3b8;
+    animation: typing-bounce 1.2s infinite ease-in-out;
+}
+
+.typing-dots .dot:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.typing-dots .dot:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes typing-bounce {
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+
+    30% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}
+
+/* ============================================================
+   11. Error states
+   ============================================================ */
+.error-message {
+    justify-content: center;
+}
+
+.error-message .message-content {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* ============================================================
+   12. Confirmation dialog
+   ============================================================ */
+.confirm-dialog {
+    width: min(90vw, 380px);
+    border: 1px solid #e4e8ef;
+    border-radius: 16px;
+    padding: 1.5rem;
+    background: #ffffff;
+    color: inherit;
+    box-shadow: 0 20px 50px rgba(31, 41, 51, 0.2);
+}
+
+.confirm-dialog::backdrop {
+    background: rgba(31, 41, 51, 0.4);
+}
+
+.dialog-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.dialog-text {
+    margin: 0 0 1.25rem;
+    font-size: 0.9rem;
+    color: #5b6572;
+    line-height: 1.5;
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+}
+
+/* ============================================================
+   13. Responsive design
+   ============================================================ */
+@media (max-width: 768px) {
+    .chat-app {
+        max-width: 100%;
+    }
+
+    .message-content {
+        max-width: 86%;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-header {
+        padding: 0.9rem 1rem;
+        gap: 0.6rem;
+    }
+
+    .header-avatar {
+        width: 36px;
+        height: 36px;
+        font-size: 1.05rem;
+    }
+
+    .header-subtitle {
+        display: none;
+    }
+
+    .chat-messages {
+        padding: 1rem;
+    }
+
+    .chat-input-area {
+        padding: 0.85rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .send-button {
+        padding: 0.75rem 1.1rem;
+    }
+
+    .message-content {
+        max-width: 90%;
+        font-size: 0.9rem;
+    }
+
+    .status-indicator {
+        font-size: 0.7rem;
+    }
+}
+
+/* ============================================================
+   14. Suggestion chips (empty state)
+   ============================================================ */
+.suggestion-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.25rem 0 0.75rem;
+}
+
+.suggestion-chip {
+    padding: 0.5rem 1rem;
+    border: 1px solid #cdd5df;
+    border-radius: 18px;
+    background: #ffffff;
+    color: #334155;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.suggestion-chip:hover,
+.suggestion-chip:focus-visible {
+    border-color: #2563eb;
+    background: #eff4ff;
+    color: #1d4ed8;
+}
+
+.suggestion-chip:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   15. Accessibility
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .chat-messages {
+        scroll-behavior: auto;
+    }
+
+    .typing-dots .dot {
+        animation: none;
+    }
+}
