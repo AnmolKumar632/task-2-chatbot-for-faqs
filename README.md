@@ -54,6 +54,16 @@ flask --app app run --host 127.0.0.1 --port 5001
 
 The first startup may download the NLTK resources listed in [NLP resources](#nlp-resources). This is a one-time startup task, not a per-request operation.
 
+### Vercel deployment
+
+The repository includes [api/index.py](api/index.py) and [vercel.json](vercel.json) for Vercel's Python serverless runtime. Import-time startup uses a deterministic portable NLP path on Vercel so cold starts do not depend on downloading NLTK corpora into an ephemeral function filesystem.
+
+In Vercel, set `SECRET_KEY` to a strong project secret and redeploy from the `main` branch. The application entrypoints are:
+
+- `/` - chat interface
+- `/api/health` - deployment health check
+- `/api/chat` - FAQ query endpoint
+
 ## Architecture
 
 ```mermaid

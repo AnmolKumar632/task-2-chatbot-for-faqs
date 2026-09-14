@@ -17,6 +17,7 @@ later phase:
 """
 
 import re
+import os
 
 import nltk
 from nltk.corpus import stopwords
@@ -60,6 +61,29 @@ _CLEANING_PATTERN = re.compile(r"[^a-z0-9]+")
 _STOP_WORDS = None
 _LEMMATIZER = None
 _resources_ready = False
+_PORTABLE_NLP = os.environ.get("FAQ_PORTABLE_NLP", "").strip().lower() in (
+    "1",
+    "true",
+    "yes",
+    "on",
+)
+
+_PORTABLE_STOP_WORDS = {
+    "a", "am", "an", "and", "are", "as", "at", "be", "can", "could",
+    "do", "does", "for", "from", "how", "i", "if", "in", "is", "it",
+    "me", "my", "of", "on", "or", "should", "that", "the", "their",
+    "there", "this", "to", "was", "what", "when", "where", "which",
+    "who", "will", "with", "you", "your",
+}
+
+_PORTABLE_IRREGULARS = {
+    "bought": "buy",
+    "buying": "buy",
+    "failed": "fail",
+    "forgot": "forget",
+    "paid": "pay",
+    "took": "take",
+}
 
 
 def _initialize_components():
@@ -75,6 +99,10 @@ def ensure_nltk_resources():
     """Download any missing NLTK resources once and reuse them afterwards."""
     global _resources_ready
     if _resources_ready:
+        return
+
+    if _PORTABLE_NLP:
+        _resources_ready = True
         return
 
     missing = []
@@ -126,6 +154,22 @@ def _clean_text(text):
     return _CLEANING_PATTERN.sub(" ", text)
 
 
+def _portable_lemma(token):
+    """Apply small deterministic rules when NLTK data is unavailable."""
+    if token in _PORTABLE_IRREGULARS:
+        return _PORTABLE_IRREGULARS[token]
+    if len(token) > 4 and token.endswith("ies"):
+        return token[:-3] + "y"
+    if len(token) > 5 and token.endswith("ing"):
+        stem = token[:-3]
+        return stem[:-1] if len(stem) > 3 and stem[-1] == stem[-2] else stem
+    if len(token) > 4 and token.endswith("ed"):
+        return token[:-2]
+    if len(token) > 3 and token.endswith("s") and not token.endswith("ss"):
+        return token[:-1]
+    return token
+
+
 def _lemmatize_token(token):
     """Lemmatize with verb-aware inflection handling and noun fallback.
 
@@ -154,15 +198,20 @@ def preprocess_tokens(text):
     normalized = _expand_contractions(normalized)
     normalized = expand_phrases(normalized)
     normalized = _clean_text(normalized)
-    tokens = word_tokenize(normalized)
+    tokens = (
+        normalized.split()
+        if _PORTABLE_NLP
+        else word_tokenize(normalized)
+    )
 
     meaningful = []
     for token in tokens:
         if not token.isalnum():
             continue
-        if token in _STOP_WORDS:
+        if token in (_PORTABLE_STOP_WORDS if _PORTABLE_NLP else _STOP_WORDS):
             continue
-        meaningful.append(normalize_token(_lemmatize_token(token)))
+        lemma = _portable_lemma(token) if _PORTABLE_NLP else _lemmatize_token(token)
+        meaningful.append(normalize_token(lemma))
 
     return meaningful
 
